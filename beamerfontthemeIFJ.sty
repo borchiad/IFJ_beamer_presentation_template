@@ -1,7 +1,27 @@
 \mode<presentation>
 
-	\RequirePackage{fontspec}
-	\setsansfont{Calibri}
+\RequirePackage{iftex} %to detect if the user is compiling using XeTeX or PDFLaTeX
+
+\ifPDFTeX
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[sfdefault]{carlito} %pdflatex does not support calibri
+\RequirePackage[polish,main=english]{babel} %equivalent to polyglossia
+\else
+\RequirePackage{fontspec}
+\setsansfont{Calibri} %XeLaTeX supports calibri
+\RequirePackage{polyglossia} %equivalent to babel
+\setmainlanguage{english}
+\setotherlanguage{polish}
+\fi
+
+
+
+%LANGUAGE SPECIFIC TYPOGRAPHY
+\RequirePackage[autostyle]{csquotes}
+\RequirePackage{hyperref}
+\RequirePackage{caption}
+\RequirePackage{biblatex}
 	
 
 
