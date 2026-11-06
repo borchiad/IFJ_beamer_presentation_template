@@ -1,14 +1,22 @@
 \documentclass[t]{beamer}
 
 \usetheme{IFJ}
-\AtBeginDocument{\setbeamerfont{normal text}{size=\fontsize{18}{22}\selectfont}}
+\IFJlanguage{english}  
+%Define the language the presentation will be in
+%This also affects typography: any difference you don't see can be added 
+%if possible, as a package in the beamerfontthemeIFJ file
+
+
+
 \usepackage{geometry}
+
+%Fixed slide side and ratio
 \geometry{papersize={254mm,190.5mm}}
 
 \title{Title of the presentation}
-\placeAndDate[Place/Date]{Place and date}
-\author[Speaker]{Speaker}
-\department[Short Dept]{Department}
+\placeAndDate[Place/Date]{Place and date} %This is short place/date and long place/date
+\author[Speaker]{Speaker} %This is short author and long author
+\department[Short Dept]{Department} %This is short department and long department
 
 
 
@@ -21,7 +29,7 @@
 
 	\begin{frame}
 		\frametitle{First Title}
-	 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	 	Lorem \enquote{Some quoted text ipsum dolor sit amet}, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	 	\begin{itemize}
 	 		\item Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 	 		\item Pellentesque pretium lectus a convallis ullamcorper.
