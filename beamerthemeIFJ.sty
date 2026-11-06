@@ -3,6 +3,19 @@
 %Requirements
 \RequirePackage{tikz}
 
+
+\newcommand{\IFJlanguage}[1]{ %allows for switching language and logo
+	\def\IFJlang{#1}
+	\def\IFJtmp{polish}
+	\AtBeginDocument{\selectlanguage{#1}}
+	\ifx\IFJlang\IFJtmp
+	\def\IFJlogofile{logo_ifj_nzw_neg.pdf}
+	\else
+	\def\IFJlogofile{logo_ifj_nzw_neg_en.pdf}
+	\fi
+}
+
+
 %Settings
 \useinnertheme{IFJ}
 \useoutertheme{IFJ}
@@ -11,5 +24,8 @@
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[default]
+
+
+
 
 \mode<all>
