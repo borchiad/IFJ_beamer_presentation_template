@@ -1,7 +1,7 @@
 # IFJ_beamer_presentation_template
 Templates for IFJ presentation in beamer
 
-Keep all files in the folder where you will keep ```presentation.tex```. 
+Keep all files in the folder where you will keep ```presentation.tex```, **including the two logos**. 
 
 ### Language selection
 You can select the language of your presentation by changing the argument of the command ```\IFJlanguage``` in the preamble of the .tex file. The possible choices are ```english``` or ```polish```. This will reflect the logo and some typographical settings (quotation marks is not typed directly as ```"```, but using ```\enquote{}```, etc.).
