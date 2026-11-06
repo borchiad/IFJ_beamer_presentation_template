@@ -1,0 +1,69 @@
+\mode<presentation>
+
+%Defines the content box width
+\AtBeginDocument{
+	\setbeamersize{
+		text margin left  = 56pt,
+		text margin right = 56pt
+	}
+}	
+
+\gdef\IFJcurrenttitle{}
+\addtobeamertemplate{frame begin}{\gdef\IFJcurrenttitle{}}{}
+
+
+%Adds the logo in the header
+\defbeamertemplate*{headline}{IFJ}
+{
+	\ifnum\insertframenumber>1\relax
+	\vbox to 112pt{%
+		\begin{beamercolorbox}[wd=\paperwidth, ht=71pt, dp=0pt]{framelogo}
+			\begin{tikzpicture}
+				\useasboundingbox (0pt,0pt) rectangle (\the\paperwidth,71pt);
+				\node[anchor=south west, inner sep=0pt]
+				at (69pt,17pt)
+				{\includegraphics[height=41pt]{logo_ifj_nzw_neg.pdf}};
+			\end{tikzpicture}
+		\end{beamercolorbox}%
+		\vss
+	}
+	\fi
+}
+
+%adds the title if present
+\defbeamertemplate*{frametitle}{IFJ}
+{
+	\begin{beamercolorbox}[wd=\textwidth, ht=24pt, dp=0pt, sep=0pt]{frametitle}
+		\usebeamerfont{frametitle}\insertframetitle\par
+	\end{beamercolorbox}%
+	\vskip31pt
+}
+
+
+%footer set up
+\defbeamertemplate*{footline}{IFJ}
+{
+	\ifnum\insertframenumber>1\relax
+	\begin{beamercolorbox}[wd=\paperwidth, ht=50pt, dp=0pt]{footerbar}
+		\begin{tikzpicture}
+			\useasboundingbox (0pt,0pt) rectangle (\the\paperwidth,50pt);
+			\node[anchor=south west, inner sep=0pt, text=IFJFooterGrey]
+			at (58pt,20pt) {\usebeamerfont{footer}\insertshortplaceAndDate};
+			\node[anchor=south, inner sep=0pt, text=IFJFooterGrey]
+			at (360pt,20pt) {\usebeamerfont{footer}\insertshorttitle, \insertshortauthor};
+			\node[anchor=south , inner sep=0pt, text=IFJFooterGrey]
+			at (663pt,20pt) {\usebeamerfont{footer}\insertframenumber};
+		\end{tikzpicture}
+	\end{beamercolorbox}
+	\fi
+}
+
+%redefines list symbols (circle, empty circle, square)
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}{%
+	\tikz[baseline=-0.5ex]
+	\draw[draw=IFJBlue, fill=white, line width=0.6pt] (0,0) circle (0.18em);%
+}
+\setbeamertemplate{itemize subsubitem}[square]
+
+\mode<all>

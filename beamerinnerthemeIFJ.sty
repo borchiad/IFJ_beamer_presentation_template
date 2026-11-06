@@ -1,0 +1,88 @@
+\mode<presentation>
+
+\def\insertplaceAndDate{}
+\def\insertshortplaceAndDate{}
+
+\newcommand{\placeAndDate}[2][]{
+	\def\insertplaceAndDate{#2}
+	\def\insertshortplaceAndDate{#1}
+	\ifx\insertshortplaceAndDate\@empty
+	\def\insertshortplaceAndDate{#2}   
+	\fi
+}
+
+
+\def\insertdepartment{}
+\def\insertshortdepartment{}
+
+\newcommand{\department}[2][]{
+	\def\insertdepartment{#2}
+	\def\insertshortdepartment{#1}
+	\ifx\insertshortdepartment\@empty
+	\def\insertshortdepartment{#2}  
+	\fi
+}
+
+
+
+\setbeamertemplate{background}
+{
+	\begin{tikzpicture}
+		\useasboundingbox(0,0) rectangle(\the\paperwidth, \the\paperheight);
+		\fill[color=IFJBlue] (0,0) rectangle(\the\paperwidth, \the\paperheight);
+		\node[anchor=south west, inner sep=0pt] at (69pt,418pt)
+		{\includegraphics[height=70pt]{logo_ifj_nzw_neg.pdf}};
+		\draw[white,thick] (56pt,379pt) -- (670pt,379pt);
+		
+		\ifnum\thepage>1\relax
+			\fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+		\fi
+	\end{tikzpicture}
+}
+
+\defbeamertemplate*{title page}{IFJ}[1][]
+{
+
+	\begin{tikzpicture}[remember picture, overlay]
+		\node[anchor=north west, inner sep=0pt]
+		at ([xshift=61pt, yshift=319pt]current page.south west)
+		{
+			\begin{beamercolorbox}[wd=500pt, sep=8pt, #1]{title page header}
+				\usebeamerfont{title}\inserttitle\par
+			\end{beamercolorbox}%
+		};
+	\end{tikzpicture}
+	
+	
+	\begin{tikzpicture}[remember picture, overlay]
+		\node[anchor=north west, inner sep=0pt]
+		at ([xshift=63pt, yshift=139pt]current page.south west)
+		{
+			\begin{beamercolorbox}[wd=400pt, sep=8pt, #1]{placeAndDate}
+				\usebeamerfont{placeAndDate}\insertplaceAndDate\par
+			\end{beamercolorbox}%
+		};
+	\end{tikzpicture}
+
+	\begin{tikzpicture}[remember picture, overlay]
+		\node[anchor=north west, inner sep=0pt]
+		at ([xshift=63pt, yshift=107pt]current page.south west)
+		{
+			\begin{beamercolorbox}[wd=400pt, sep=8pt, #1]{author}
+				\usebeamerfont{author}\insertauthor\par
+			\end{beamercolorbox}%
+		};
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}[remember picture, overlay]
+		\node[anchor=north west, inner sep=0pt]
+		at ([xshift=63pt, yshift=76pt]current page.south west)
+		{
+			\begin{beamercolorbox}[wd=400pt, sep=8pt, #1]{department}
+				\usebeamerfont{department}\insertdepartment\par
+			\end{beamercolorbox}%
+		};
+	\end{tikzpicture}
+}
+
+\mode<all>
